@@ -1,16 +1,14 @@
 # "LLVM_DIR":"/home/dzheng/opensource/llvm12/build-tool/lib/cmake/llvm"
 cmake_minimum_required(VERSION 3.15.0)
-project(SimpleProject LANGUAGES CXX)
+project(SimpleProject LANGUAGES C CXX)
 
 include(CMakePrintHelpers)
 cmake_print_variables(LLVM_ROOT)
 
-set(CMAKE_FIND_PACKAGE_PREFER_CONFIG ON)
+# set(CMAKE_FIND_PACKAGE_PREFER_CONFIG ON)
 
 # Find CMake file for Clang
-find_package(Clang REQUIRED
-            ONLY_CMAKE_FIND_ROOT_PATH
-            NO_DEFAULT_PATH)
+find_package(Clang REQUIRED)
 
 # Add path to LLVM modules
 set(CMAKE_MODULE_PATH
@@ -56,3 +54,5 @@ clangEdit
 clangLex
 clangTransformer
 clangTooling)
+
+add_subdirectory(src)
